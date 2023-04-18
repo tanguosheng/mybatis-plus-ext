@@ -17,6 +17,7 @@ package com.photowey.mybatisplus.ext.core.pagination;
 
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.photowey.mybatisplus.ext.annotation.DynamicSelect;
 import com.photowey.mybatisplus.ext.core.sort.SortColumn;
@@ -139,6 +140,7 @@ public abstract class AbstractPaginationModel implements IPagination, Serializab
     }
 
     @ApiModelProperty(hidden = true)
+    @JsonSetter
     public void setFields(Set<String> fields) {
         if (ObjectUtils.isEmpty(fields)) {
             return;
@@ -163,7 +165,7 @@ public abstract class AbstractPaginationModel implements IPagination, Serializab
     }
 
     @ApiModelProperty(hidden = true)
-    public void setFieldz(String... fields) {
+    public void setFields(String... fields) {
         if (ObjectUtils.isEmpty(fields)) {
             return;
         }
@@ -171,7 +173,7 @@ public abstract class AbstractPaginationModel implements IPagination, Serializab
     }
 
     @ApiModelProperty(hidden = true)
-    public void setFieldz(boolean replace, String... fields) {
+    public void setFields(boolean replace, String... fields) {
         if (ObjectUtils.isEmpty(fields)) {
             return;
         }
